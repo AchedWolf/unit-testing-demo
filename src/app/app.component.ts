@@ -7,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {}
+  constructor() { }
 
+  /*
+   * Função dedicada a somar dois numeros
+   */
   add(a: number, b: number) {
     return a + b;
   }

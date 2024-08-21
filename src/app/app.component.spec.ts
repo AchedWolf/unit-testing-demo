@@ -8,15 +8,15 @@ import { AppComponent } from './app.component';
   selector: 'app-nav-bar',
   template: `<div></div>`,
 })
-class MockNavBarComponent {}
+class MockNavBarComponent { }
 
 @Component({
   selector: 'app-products',
   template: `<div></div>`,
 })
-class MockProductsComponent {}
+class MockProductsComponent { }
 
-describe('AppComponent', () => {
+describe('[AppComponent]', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
 
@@ -33,9 +33,18 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have app-navbar', () => {});
+  it('should have app-nav-bar', () => {
+    const element = fixture.debugElement.nativeElement.querySelector('app-nav-bar');
+    expect(element).toBeTruthy();
+  });
 
-  it('should have app-products', () => {});
+  it('should have app-products', () => {
+    const element = fixture.debugElement.nativeElement.querySelector('app-products');
+    expect(element).toBeTruthy();
+  });
 
-  it('should test sum of two numbers', () => {});
+  it('should test sum of two numbers', () => {
+    const result = component.add(3, 4);
+    expect(result).toEqual(7);
+  });
 });

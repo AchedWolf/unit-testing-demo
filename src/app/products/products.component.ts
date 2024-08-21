@@ -19,12 +19,15 @@ export class ProductsComponent implements OnInit {
     private productService: ProductsService,
     private dialog: MatDialog,
     private snackbar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
+  /*
+   * Função destinada a listar os produtos
+   */
   getProducts() {
     this.showSpinner = true;
     this.productService.getProducts().subscribe({
@@ -41,12 +44,18 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  /*
+   * Função destinada a abrir o dialog
+   */
   openDialog() {
     this.dialog.open(AddProductComponent, {
       width: '40%',
     });
   }
 
+  /*
+   * Função destinada a abrir o dialog de edição de produtos
+   */
   editProduct(product: Product) {
     this.dialog.open(AddProductComponent, {
       data: product,
@@ -54,6 +63,9 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  /*
+   * Função destinada a deletar um dos itens
+   */
   deleteProduct(product: any) {
     this.productService.deleteProduct(product.id).subscribe({
       next: (res) => {

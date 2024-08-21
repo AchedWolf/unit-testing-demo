@@ -4,7 +4,7 @@ import { MaterialModule } from '../shared/material.module';
 
 import { NavBarComponent } from './nav-bar.component';
 
-describe('NavBarComponent', () => {
+describe('[NavBarComponent]', () => {
   let component: NavBarComponent;
   let fixture: ComponentFixture<NavBarComponent>;
 
@@ -23,7 +23,12 @@ describe('NavBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should check menuItems array is initialized', () => {});
+  it('should check menuItems array is initialized', () => {
+    expect(component.menuItems.length).toEqual(4);
+  });
 
-  it('should check menuItem is rendered', () => {});
+  it('should check menuItem is rendered', () => {
+    const menu = fixture.debugElement.nativeElement.querySelector('mat-menu');
+    expect(menu).toBeTruthy();
+  });
 });
