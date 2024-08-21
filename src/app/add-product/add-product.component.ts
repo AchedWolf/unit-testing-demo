@@ -21,14 +21,23 @@ export class AddProductComponent implements OnInit {
     private dialogRef: MatDialogRef<AddProductComponent>
   ) { }
 
+  /*
+   * Retorna os dados do produto
+   */
   public get data(): Product {
     return this._data;
   }
 
+  /*
+   * Define os dados do produto
+   */
   public set data(d: Product) {
     this._data = d;
   }
 
+  /*
+   * Função de inicialização, verifica se há dados de entrada e define se o form de acordo
+   */
   ngOnInit(): void {
     const hasData = this.data && Object.keys(this.data).length;
     this.productForm = new FormGroup({
@@ -39,6 +48,9 @@ export class AddProductComponent implements OnInit {
     });
   }
 
+  /*
+   * Função responsavel por identificar se ira salvar ou atualizar o item e executar
+   */
   saveProduct() {
     const product = this.productForm.value as Product;
     if (Object.keys(this.data).length) {
